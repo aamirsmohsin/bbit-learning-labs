@@ -27,9 +27,11 @@ class mqProducer(mqProducerInterface):
     def publishOrder(self, message: str):
         self.channel.basic_publish(
             exchange=self.exchange_name,
-            routing_key="Routing Key",
+            routing_key=self.routing_key,
             body="Message",
         )
+
+        print("order published")
 
         self.channel.close()
         self.connection.close()
