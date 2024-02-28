@@ -23,7 +23,8 @@ def main(sector: str, queueName: str) -> None:
     #
     #                       WRITE CODE HERE!!!
     #
-    bindingKey = f'Stock.*.{sector}'
+    bindingKey = f'Stock.#.{sector}'
+
     consumer = mqConsumer(binding_key=bindingKey,exchange_name="Tech Lab Topic Exchange",queue_name=queueName)    
     consumer.startConsuming()
     

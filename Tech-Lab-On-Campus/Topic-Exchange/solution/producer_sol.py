@@ -29,10 +29,10 @@ class mqProducer(mqProducerInterface):
         self.channel.basic_publish(
             exchange=self.exchange_name,
             routing_key=self.routing_key,
-            body="Message",
+            body=message,
         )
 
-        print("order published")
+        print("Message has been sent!")
 
         self.channel.close()
         self.connection.close()
